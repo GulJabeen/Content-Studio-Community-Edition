@@ -1,0 +1,15 @@
+{
+  "brand": {
+    "name": "Crumb & Co",
+    "handle": "@crumbandco",
+    "colors": { "bg": "#F6F2EC", "ink": "#1B1A17", "accent": "#C8552D", "muted": "#7A756D" }
+  },
+  "fps": 30,
+  "beats": [
+    { "kind": "hook",    "seconds": 4,  "big": "FIVE FLAT LOAVES?", "small": "your starter's fine. your fridge isn't." },
+    { "kind": "shock",   "seconds": 6,  "big": "3–5°C", "small": "dough barely moves down there. it isn't proofing. it's waiting." },
+    { "kind": "intro",   "seconds": 8,  "big": "Sana", "small": "six years running a bakery · 400 people taught to get an open crumb" },
+    { "kind": "explain", "seconds": 22, "big": "counter first, then the fridge", "items": ["1. proof on the counter", "2. poke test: slow spring, stops halfway", "3. the fridge holds. it doesn't proof."] },
+    { "kind": "cta",     "seconds": 5,  "big": "PROOF", "small": "comment the word and I'll send you the timing chart" }
+  ]
+}

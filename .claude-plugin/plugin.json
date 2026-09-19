@@ -1,0 +1,23 @@
+{
+  "name": "content-studio",
+  "version": "1.0.0",
+  "description": "A reel-first content studio for Claude Code. Interviews you once about your brand, then writes every script, caption and carousel in your voice and runs it through three quality gates before you ever see it. Renders a Remotion motion-graphics bed for your face cam.",
+  "author": {
+    "name": "Gul",
+    "url": "https://instagram.com/techwithgul.ai"
+  },
+  "license": "MIT",
+  "keywords": [
+    "content",
+    "reels",
+    "video",
+    "captions",
+    "carousel",
+    "remotion",
+    "creator",
+    "brand-voice",
+    "instagram",
+    "tiktok",
+    "youtube"
+  ]
+}

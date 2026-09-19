@@ -1,0 +1,13 @@
+# Remotion / Node
+video/node_modules/
+video/out/*
+!video/out/.gitkeep
+node_modules/
+npm-debug.log*
+
+# macOS
+.DS_Store
+
+# A creator's own content never belongs in the plugin repo — it lives in their folder.
+/brand/
+/output/

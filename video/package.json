@@ -1,0 +1,25 @@
+{
+  "name": "content-studio-video",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Remotion bed for Content Studio (Community Edition): a data-driven 5-beat reel background your face cam sits over",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts ReelBed out/reel-bed.mp4",
+    "render:vertical": "remotion render src/index.ts ReelBedVertical out/reel-bed-9x16.mp4",
+    "still": "remotion still src/index.ts ReelBed out/check.png --frame=60",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.440",
+    "@remotion/transitions": "4.0.440",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "remotion": "4.0.440"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^5.9.0"
+  }
+}

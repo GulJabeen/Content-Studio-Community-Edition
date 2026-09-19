@@ -1,0 +1,19 @@
+{
+  "name": "techwithgul",
+  "owner": {
+    "name": "Gul",
+    "url": "https://instagram.com/techwithgul.ai"
+  },
+  "metadata": {
+    "description": "Content tooling for creators, from Tech With Gul",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "content-studio",
+      "source": "./",
+      "description": "A reel-first content studio: brand interview, script pipeline, three quality gates, captions, carousels, and a Remotion video bed.",
+      "version": "1.0.0"
+    }
+  ]
+}
