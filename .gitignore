@@ -11,3 +11,7 @@ npm-debug.log*
 # A creator's own content never belongs in the plugin repo — it lives in their folder.
 /brand/
 /output/
+
+# combine inputs are the creator's own footage — never commit them
+video/public/*.mp4
+video/public/*.mov

@@ -45,16 +45,19 @@ MP=$(python3 -c "import json;print(json.load(open('$C/.claude-plugin/marketplace
 NA=$(ls "$C"/agents/*.md 2>/dev/null | wc -l | tr -d ' ')
 [ "$NA" -ge 10 ] && ok "$NA agents shipped" || bad "only $NA agents"
 NC=$(ls "$C"/commands/*.md 2>/dev/null | wc -l | tr -d ' ')
-[ "$NC" -eq 8 ] && ok "8 commands (the dropdown shot)" || bad "$NC commands — the video says eight"
-for c in setup install idea reel video captions carousel check; do
+[ "$NC" -eq 9 ] && ok "9 commands (the dropdown shot)" || bad "$NC commands — the video says nine"
+for c in setup install idea reel video combine captions carousel check; do
   [ -f "$C/commands/$c.md" ] || bad "command /$c missing"
 done
 [ -f "$C/install.sh" ] && ok "install.sh present" || bad "install.sh MISSING"
+[ -f "$C/scripts/combine.sh" ] && ok "combine.sh present (step 6)" || bad "combine.sh MISSING"
+bash -n "$C/scripts/combine.sh" 2>/dev/null && ok "combine.sh parses" || bad "combine.sh has a syntax error"
+grep -q 'id="ReelFinal"' "$C/video/src/Root.tsx" 2>/dev/null && ok "ReelFinal composition registered" || bad "ReelFinal not registered"
 
 head_ "3 · Nothing private leaked into the public repo"
 if grep -rqiE 'sk-ant-|gho_[A-Za-z0-9]{20}|xoxb-|AKIA[0-9A-Z]{16}|BEGIN (RSA|OPENSSH) PRIVATE' "$C" --exclude-dir=.git --exclude=test.sh --exclude=ship.sh 2>/dev/null
 then bad "a credential-shaped string is in the PUBLIC repo"; else ok "no credentials in the public repo"; fi
-if grep -rqi 'hyly' "$C" --exclude-dir=.git 2>/dev/null
+if grep -rqi 'hyly' "$C" --exclude-dir=.git --exclude=test.sh --exclude=ship.sh 2>/dev/null
 then bad "employer name found in the public repo"; else ok "no employer references"; fi
 if [ -d "$C/brand" ] && [ -f "$C/brand/BRAND.md" ]
 then bad "a filled brand/BRAND.md shipped — that is YOUR profile"; else ok "no personal brand profile shipped"; fi
@@ -90,6 +93,15 @@ else
   ( cd "$C/video" && npm install --no-audit --no-fund >"$TMP/npm.log" 2>&1 ) \
     && ok "npm install in video/ succeeds (Remotion can render)" \
     || bad "npm install FAILED — /content-studio:video will not work. Tail: $(tail -2 "$TMP/npm.log" | tr '\n' ' ')"
+  if ( cd "$C/video" && npx --no-install remotion compositions src/index.ts 2>/dev/null | grep -q ReelFinal ); then
+    ok "Remotion lists ReelFinal (step 6 will render)"
+  else bad "Remotion cannot see ReelFinal"; fi
+  if ( cd "$C/video" && npx --no-install remotion render src/index.ts ReelBed "$TMP/bed.mp4" --frames=0-14 --log=error >/dev/null 2>&1 ); then
+    ok "a real bed renders (step 5 works)"
+    ( cd "$C" && ./scripts/combine.sh "$TMP" "$TMP/bed.mp4" >"$TMP/comb.log" 2>&1 ) \
+      && [ -f "$TMP/reel-final.mp4" ] && ok "combine produces reel-final.mp4 (step 6 works)" \
+      || bad "combine FAILED: $(tail -2 "$TMP/comb.log" | tr '\n' ' ')"
+  else bad "bed render failed — step 5 will not work on camera"; fi
 fi
 
 head_ "RESULT"
