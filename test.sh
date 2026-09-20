@@ -43,10 +43,10 @@ C="$TMP/clone"
 MP=$(python3 -c "import json;print(json.load(open('$C/.claude-plugin/marketplace.json'))['name'])" 2>/dev/null)
 [ "$MP" = "techwithgul" ] && ok "marketplace registers as 'techwithgul'" || bad "marketplace name is '$MP', so 'content-studio@techwithgul' will fail"
 NA=$(ls "$C"/agents/*.md 2>/dev/null | wc -l | tr -d ' ')
-[ "$NA" -ge 11 ] && ok "$NA agents shipped" || bad "only $NA agents"
+[ "$NA" -ge 12 ] && ok "$NA agents shipped" || bad "only $NA agents"
 NC=$(ls "$C"/commands/*.md 2>/dev/null | wc -l | tr -d ' ')
-[ "$NC" -eq 10 ] && ok "10 commands (the dropdown shot)" || bad "$NC commands — the video says ten"
-for c in setup install idea reel video combine assets captions carousel check; do
+[ "$NC" -eq 11 ] && ok "11 commands (the dropdown shot)" || bad "$NC commands — the video says eleven"
+for c in setup install idea reel video combine assets learn captions carousel check; do
   [ -f "$C/commands/$c.md" ] || bad "command /$c missing"
 done
 [ -f "$C/install.sh" ] && ok "install.sh present" || bad "install.sh MISSING"
@@ -55,6 +55,10 @@ bash -n "$C/scripts/combine.sh" 2>/dev/null && ok "combine.sh parses" || bad "co
 grep -q 'id="ReelFinal"' "$C/video/src/Root.tsx" 2>/dev/null && ok "ReelFinal composition registered" || bad "ReelFinal not registered"
 [ -f "$C/agents/10-asset-agent.md" ] && ok "asset agent shipped" || bad "asset agent MISSING"
 grep -q 'Official source first' "$C/agents/10-asset-agent.md" 2>/dev/null && ok "asset agent keeps the rights rules" || bad "asset agent lost its rights rules"
+[ -f "$C/agents/11-learn-agent.md" ] && ok "learn agent shipped" || bad "learn agent MISSING"
+grep -q 'learned:' "$C/templates/brand/BRAND.md" 2>/dev/null && ok "brand template has the learned: section" || bad "brand template missing learned:"
+WIRED=$(grep -l 'learned.recurring_fixes' "$C"/agents/0*.md 2>/dev/null | wc -l | tr -d " ")
+[ "$WIRED" -ge 4 ] && ok "$WIRED drafting agents read learned: (the loop closes)" || bad "only $WIRED agents read learned: — the loop is cosmetic"
 
 head_ "3 · Nothing private leaked into the public repo"
 if grep -rqiE 'sk-ant-|gho_[A-Za-z0-9]{20}|xoxb-|AKIA[0-9A-Z]{16}|BEGIN (RSA|OPENSSH) PRIVATE' "$C" --exclude-dir=.git --exclude=test.sh --exclude=ship.sh 2>/dev/null
