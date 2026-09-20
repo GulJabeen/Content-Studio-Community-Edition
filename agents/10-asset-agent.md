@@ -86,11 +86,32 @@ If a brand page says "contact us for assets" — **stop and say so in the report
 real answer, not a failure.
 
 ### 7. If the script points at a page, capture the page
+
 When the voiceover names a **repo, product page, pricing table, docs page, dashboard or
-leaderboard**, a capture of the real page beats any logo or animated number. Take a
-screenshot or screen recording of it and file it under `assets/screens/`.
+leaderboard**, a capture of the real page beats any logo or animated number. File it under
+`assets/screens/`.
 
 A reel that says "the repo has 87,000 stars" is twice as strong showing the counter.
+
+**Try the ladder in this order, and stop at the first one that works:**
+
+1. **A real browser screenshot** — headless Chrome, full page. Always attempt this first; it
+   is the only option that shows the page as a viewer would actually see it, README and all.
+   If launching Chrome needs an approval you cannot get, say so and drop to 2 — do not skip
+   silently to a fallback and let it read as a screenshot.
+2. **The site's own published card** — the `og:image`, or a service-generated card such as
+   GitHub's repo card. First-party and legitimate, but it is a *card*, not the page: usually
+   on a solid background, cropped, and often rounding live numbers.
+3. **Nothing.** Record it in **Not obtained** with what to re-run.
+
+**Name the method in the row.** Every `screens/` entry states which rung it came from —
+`browser screenshot`, `og:image`, or `service card` — in its own column, not buried in a note
+underneath. Someone reading the ledger in a month must be able to tell at a glance whether
+they are looking at the real page or a marketing image of it.
+
+**If a live number is on screen, verify it separately.** Cards round ("60k") and go stale.
+Fetch the real figure from an API or the page itself, record it with the date, and flag that
+it drifts. A number said out loud in a reel is a claim, and it belongs in `resources.md` too.
 
 ### 8. Never invent an asset
 If you cannot find something legitimately, it goes in the **Not obtained** section of the
@@ -134,9 +155,10 @@ Fetched <date>. Every file below has a source. Anything unsourced was deleted, n
 | images/desk.jpg | b-roll | unsplash.com/photos/xyz | Unsplash Licence | no |
 
 ## Screens
-| File | Page | Captured | Why |
-|---|---|---|---|
-| screens/repo.png | github.com/x/y | <date> | the star counter named at 0:14 |
+| File | Page | Method | Captured | Why |
+|---|---|---|---|---|
+| screens/repo.png | github.com/x/y | browser screenshot | <date> | the star counter named at 0:14 |
+| screens/site-card.png | example.com | og:image ⚠️ not the page | <date> | fallback — Chrome unavailable |
 
 ## Not obtained
 | Wanted | Why not | What to do instead |
