@@ -90,6 +90,24 @@ references:
   - url: ""
     why: ""
 
+## What the studio has learned about you
+# Written by `/content-studio:learn` from your own shipped work. Do not hand-edit while a
+# run is in progress. Delete any line you disagree with — it is read as fact by every agent.
+
+learned:
+  # Pieces of YOUR OWN work that shipped, added after the fact. These outrank the
+  # references above, because you made them with the studio and kept them.
+  shipped: []
+  #  - piece: "output/2026-09-20-terminal-vs-panel"
+  #    hook: "You are running Claude Code in the wrong place."
+  #    why_it_worked: "opened on the reader's mistake, not the tool"
+
+  # Patterns the evaluator had to FIX more than once. The agents read these BEFORE
+  # drafting, so the same note stops coming back.
+  recurring_fixes: []
+  #  - note: "hooks kept opening with a question"
+  #    seen: 3
+
 ## Derived budgets (the studio fills these from pace_wpm and target_length_seconds)
 
 budget:

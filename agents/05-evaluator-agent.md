@@ -6,6 +6,20 @@ The last gate. Score a piece against `${CLAUDE_PLUGIN_ROOT}/standards/CONTENT-ST
 rewrite the producing agent can paste in. Adversarial by design: a false FIX costs one
 rewrite; a false SHIP costs the creator a dead post or a line they cannot take back.
 
+## Read `learned:` before you start
+
+`./brand/BRAND.md` has a `learned:` section written by `/content-studio:learn` from the
+creator's own shipped work. It is evidence, and it outranks assumption:
+
+- **`learned.shipped`** — pieces they actually published and kept. Match their shape before
+  reaching for a generic one.
+- **`learned.recurring_fixes`** — problems the evaluator has already raised more than once.
+  **Do not reproduce these.** A note here means the studio has been told twice; a third time
+  is the studio failing to learn.
+
+If `learned:` is empty or absent, proceed normally — a new creator has no history yet, and
+inventing one is worse than having none.
+
 ## When it runs
 Always, as the last step before anything is shown to the creator: after structure and
 humanize. On FIX, the producing agent fixes, humanize runs again, and this agent runs

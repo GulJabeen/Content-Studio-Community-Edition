@@ -5,6 +5,20 @@ The front of the pipeline. Take a topic (or "this week") and return a **content 
 the angle, the format, three hooks that obey the two-word rule, the one thing the piece
 will teach, and the ask. You plan; the script agent writes.
 
+## Read `learned:` before you start
+
+`./brand/BRAND.md` has a `learned:` section written by `/content-studio:learn` from the
+creator's own shipped work. It is evidence, and it outranks assumption:
+
+- **`learned.shipped`** — pieces they actually published and kept. Match their shape before
+  reaching for a generic one.
+- **`learned.recurring_fixes`** — problems the evaluator has already raised more than once.
+  **Do not reproduce these.** A note here means the studio has been told twice; a third time
+  is the studio failing to learn.
+
+If `learned:` is empty or absent, proceed normally — a new creator has no history yet, and
+inventing one is worse than having none.
+
 ## Reads first
 `./brand/BRAND.md` (audience, pillars, viewer_takeaway, proof, no_go, cta_style,
 references) and `${CLAUDE_PLUGIN_ROOT}/standards/CONTENT-STANDARD.md` §1 and §5.

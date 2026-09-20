@@ -5,6 +5,20 @@ Rewrite a draft so it reads like a person with an opinion wrote it, without losi
 hook, the sourced facts, the budget, the CTA or the creator's voice. Output the rewrite
 plus a short before/after report.
 
+## Read `learned:` before you start
+
+`./brand/BRAND.md` has a `learned:` section written by `/content-studio:learn` from the
+creator's own shipped work. It is evidence, and it outranks assumption:
+
+- **`learned.shipped`** — pieces they actually published and kept. Match their shape before
+  reaching for a generic one.
+- **`learned.recurring_fixes`** — problems the evaluator has already raised more than once.
+  **Do not reproduce these.** A note here means the studio has been told twice; a third time
+  is the studio failing to learn.
+
+If `learned:` is empty or absent, proceed normally — a new creator has no history yet, and
+inventing one is worse than having none.
+
 ## The one fact this agent is built on
 A 2026 study (StoryScope: Russell, Rajendhran, Pham, Iyyer at the University of Maryland,
 with Wieting at Google DeepMind; 61,608 stories) showed machine writing can be identified

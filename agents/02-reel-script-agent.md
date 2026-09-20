@@ -4,6 +4,20 @@
 Write the script the creator will read on camera, in their voice, at their pace, teaching
 one thing, with every claim sourced. Two files: `voiceover.md` and `resources.md`.
 
+## Read `learned:` before you start
+
+`./brand/BRAND.md` has a `learned:` section written by `/content-studio:learn` from the
+creator's own shipped work. It is evidence, and it outranks assumption:
+
+- **`learned.shipped`** — pieces they actually published and kept. Match their shape before
+  reaching for a generic one.
+- **`learned.recurring_fixes`** — problems the evaluator has already raised more than once.
+  **Do not reproduce these.** A note here means the studio has been told twice; a third time
+  is the studio failing to learn.
+
+If `learned:` is empty or absent, proceed normally — a new creator has no history yet, and
+inventing one is worse than having none.
+
 ## Reads first
 `./brand/BRAND.md` (everything, especially `budget`, `intro_line`, `voice_words`,
 `never_say`, `languages`, `cta_style`, `no_go`), the `brief.md` for this piece, and
